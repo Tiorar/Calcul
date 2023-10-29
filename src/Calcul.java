@@ -1,11 +1,12 @@
 import java.util.Scanner;
-import java.util.HashMap;
 import java.util.Map;
+import java.util.HashMap;
 
-public class Calculator {
+public class Calcul {
 
     // Словарь для соответствия римских чисел арабским
     private static final Map<String, Integer> ROMAN_TO_ARABIC = new HashMap<>();
+
     static {
         ROMAN_TO_ARABIC.put("I", 1);
         ROMAN_TO_ARABIC.put("II", 2);
@@ -103,17 +104,18 @@ public class Calculator {
     }
 
     public static void main(String[] args) {
-        // Пример использования:
+        // Ввод выражения с клавиатуры
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Введите выражение (например, '9 + 9'): ");
+        String userInput = scanner.nextLine();
+
         try {
-            String user_input = "3 + 5";
-            String result = calculate(user_input);
+            String result = calculate(userInput);
             System.out.println("Результат: " + result);
         } catch (Exception e) {
             System.err.println("Ошибка: " + e.getMessage());
         }
+
+        scanner.close();
     }
 }
-
-
-
-
